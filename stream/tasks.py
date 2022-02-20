@@ -32,6 +32,23 @@ def stream_finance():
 
     '''
         Bridge between your channels, the worker and the finance api
+
+        The channel layer is for high-level application-to-application communication. 
+        When you send a message, it is received by the consumers listening to the group 
+        or channel on the other end. What this means is that you should send high-level 
+        events over the channel layer, and then have consumers handle those events, 
+        and do appropriate low-level networking to their attached client.
+
+        Using Outside Of Consumers
+        You’ll often want to send to the channel layer from outside of the scope of a consumer, 
+        and so you won’t have self.channel_layer.
+        In this case, you should use the get_channel_layer function to retrieve it:
+
+        Then, once you have it, you can just call methods on it. Remember 
+        that channel layers only support async methods, 
+        so you can either call it from your own asynchronous context:
+
+
     '''
 
 
